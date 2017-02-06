@@ -15,11 +15,11 @@ function DetailController($state, $stateParams, searchData, $log) {
   }
 
   function getFilms(films) {
-    vm.result.films = [];
+    vm.result.filmlist = [];
     if (films.length > 0) {
       films.forEach(function (url) {
         searchData.get(url).then(function (ret) {
-          vm.result.films.push(ret.data);
+          vm.result.filmlist.push(ret);
         });
       });
     }
@@ -34,6 +34,5 @@ function DetailController($state, $stateParams, searchData, $log) {
         });
       });
     }
-    $log.log(vm.result.characters);
   }
 }

@@ -1,2 +1,2 @@
 angular
-  .module('app', ['ui.router', 'app.services']);
+  .module('app', ['ui.router', 'ngSanitize', 'app.services']);

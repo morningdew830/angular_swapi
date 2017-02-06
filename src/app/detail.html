@@ -14,8 +14,9 @@
               <h4>Mass: {{vm.result.mass}}</h4>
             </div>
             <div class="col-md-6">
-              <h4>Movies:
-                <a href="javascript:void(0)" style="display:block" ng-repeat="film in vm.result.films">{{film.title + ($index < vm.result.films.length - 1 ? ', ' : '')}}</a>
+              <h4>
+                <label style="font-weight:normal">Movies:</label><br>
+                <a href="javascript:void(0)" style="display:inline-block;line-height:1.5" ng-repeat="film in vm.result.filmlist track by $index">{{film.title + ($index < vm.result.filmlist.length - 1 ? ',&nbsp;' : '')}}</a>
               </h4>
             </div>
           </div>
@@ -23,20 +24,23 @@
         <div class="panel-body" ng-if="vm.result.type == 'movie'">
           <h3><strong>{{vm.result.title}}</strong></h3>
           <div class="row">
-            <div class="col-md-6" style="display:block">
-              <h4>Opening Crawl:
-                <span>{{vm.result.opening_crawl}}</span>
+            <div class="col-md-6">
+              <h4>
+                <label style="font-weight:normal">Opening Crawl:</label>
+                <pre class="opening_crawl" style="line-height:1.5">{{vm.result.opening_crawl}}</pre>
               </h4>
             </div>
             <div class="col-md-6">
-              <h4>Characters:
-                <a href="javascript:void(0)" style="display:block" ng-repeat="character in vm.result.characters">{{character.name + ($index < vm.result.characters.length - 1 ? ', ' : '')}}</a>
+              <h4>
+                <label style="font-weight:normal">Characters:</label><br>
+                <a href="javascript:void(0)" style="display:inline-block;line-height:1.5" ng-repeat="character in vm.result.characters track by $index">{{character.name + ($index < vm.result.characters.length - 1 ? ', ' : '')}}</a>
               </h4>
             </div>
           </div>
         </div>
       </div>
-      <a ui-sref="search" style="font-size:2rem;text-decoration:none"><span class="glyphicon glyphicon-chevron-left"></span>Back</a>
+      <a ui-sref="search" style="font-size:2rem;text-decoration:none"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</a>
+      <div class="padding-100"></div>
     </div>
   </div>
 </main>
